@@ -5,6 +5,7 @@
 package Vistas;
 
 import java.awt.Dimension;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -13,10 +14,7 @@ import java.awt.Dimension;
 public class MDI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MDI.class.getName());
-
-    /**
-     * Creates new form MDI
-     */
+    public static JDesktopPane jDesktopPane_MDI;
     public MDI() {
         initComponents();
         this.setSize(new Dimension(1200,700));
@@ -24,6 +22,13 @@ public class MDI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("SIGVET");
         
+        this.setLayout(null);
+        jDesktopPane_MDI=new JDesktopPane();
+        
+        int ancho=java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto=java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+        this.jDesktopPane_MDI.setBounds(0,0,ancho,(alto-110));
+        this.add(jDesktopPane_MDI);
     }
 
     /**
@@ -35,37 +40,29 @@ public class MDI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        Proveedores = new javax.swing.JMenu();
+        jMenuItem_nuevo_proveedor = new javax.swing.JMenuItem();
+        jMenuItem_gestionar_proveedores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        Proveedores.setText("Proveedores");
+
+        jMenuItem_nuevo_proveedor.setText("Nuevo Proveedor");
+        Proveedores.add(jMenuItem_nuevo_proveedor);
+
+        jMenuItem_gestionar_proveedores.setText("Gestionar Proveedores");
+        Proveedores.add(jMenuItem_gestionar_proveedores);
+
+        jMenuBar1.add(Proveedores);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addGap(0, 0, 0))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,9 +93,10 @@ public class MDI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenu Proveedores;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem_gestionar_proveedores;
+    private javax.swing.JMenuItem jMenuItem_nuevo_proveedor;
     // End of variables declaration//GEN-END:variables
 }
