@@ -22,7 +22,7 @@ public class ProductosDAO {
 
           public boolean guardarProductoBasico(String codigoBarras, String nombre, int idCategoria) {
                      String sql = "INSERT INTO PRODUCTOS "
-                    + "(codigo_barras, nombre, descripcion_tecnica, porcentaje_iva_detalle, imagen_url, estado, id_categoria) "
+                    + "(codigo_barras, nombre, descripcion_tecnica, porcentaje_iva_default, imagen_url, estado, id_categoria) "
                      + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
           try {
@@ -69,7 +69,7 @@ public class ProductosDAO {
                 producto.setCodigoBarras(rs.getString("codigo_barras"));
                 producto.setNombre(rs.getString("nombre"));
                 producto.setDescripcionTecnica(rs.getString("descripcion_tecnica"));
-                producto.setPorcentajeIvaDetalle(rs.getDouble("porcentaje_iva_detalle"));
+                producto.setPorcentajeIvaDetalle(rs.getDouble("porcentaje_iva_default"));
                 producto.setImagenUrl(rs.getString("imagen_url"));
                 producto.setEstado(rs.getString("estado"));
                 producto.setIdCategoria(rs.getInt("id_categoria"));
@@ -90,7 +90,7 @@ public class ProductosDAO {
 
     public boolean guardarProducto(Producto producto) {
         String sql = "INSERT INTO PRODUCTOS "
-                + "(codigo_barras, nombre, descripcion_tecnica, porcentaje_iva_detalle, imagen_url, estado, id_categoria) "
+                + "(codigo_barras, nombre, descripcion_tecnica, porcentaje_iva_default, imagen_url, estado, id_categoria) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -120,7 +120,7 @@ public class ProductosDAO {
 
     public boolean actualizarProducto(Producto producto) {
         String sql = "UPDATE PRODUCTOS SET codigo_barras=?, nombre=?, descripcion_tecnica=?, "
-                + "porcentaje_iva_detalle=?, imagen_url=?, estado=?, id_categoria=? "
+                + "porcentaje_iva_default=?, imagen_url=?, estado=?, id_categoria=? "
                 + "WHERE id_producto=?";
 
         try {
@@ -175,7 +175,7 @@ public class ProductosDAO {
         ArrayList<Producto> lista = new ArrayList<>();
 
         String sql = "SELECT id_producto, codigo_barras, nombre, descripcion_tecnica, "
-                + "porcentaje_iva_detalle, imagen_url, estado, id_categoria "
+                + "porcentaje_iva_default, imagen_url, estado, id_categoria "
                 + "FROM PRODUCTOS "
                 + "WHERE nombre LIKE ? OR codigo_barras LIKE ? OR descripcion_tecnica LIKE ? "
                 + "ORDER BY id_producto DESC";

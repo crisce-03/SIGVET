@@ -4,11 +4,13 @@
  */
 package Controladores.ctrlProductos;
 
+import servicios.CloudinaryService;
 import Modelos.ProductosDAO;
 import Modelos.Producto;
 import Vistas.FrmGestionarProductos;
 import java.awt.Image;
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -21,8 +23,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuario
  */
 public class GestionProductosController {
-    
-  private ProductosDAO dao;
+
+    private ProductosDAO dao;
     private FrmGestionarProductos vista;
 
     public GestionProductosController(FrmGestionarProductos vista) {
@@ -89,71 +91,76 @@ public class GestionProductosController {
     }
 
     private void seleccionarImagen() {
+
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Seleccionar imagen del producto");
-        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        chooser.setAcceptAllFileFilterUsed(false);
 
-        FileNameExtensionFilter filtroImagenes = new FileNameExtensionFilter(
-                "Imágenes (*.jpg, *.jpeg, *.png, *.webp)",
-                "jpg", "jpeg", "png", "webp"
-        );
-
-        chooser.addChoosableFileFilter(filtroImagenes);
-        chooser.setFileFilter(filtroImagenes);
+        chooser.setDialogTitle("Seleccionar imagen");
 
         int opcion = chooser.showOpenDialog(vista);
 
         if (opcion == JFileChooser.APPROVE_OPTION) {
-            File archivo = chooser.getSelectedFile();
-            String ruta = archivo.getAbsolutePath();
 
-            vista.txtRuta.setText(ruta);
-            mostrarImagen(ruta);
+            File archivo = chooser.getSelectedFile();
+
+      
+            mostrarImagen(archivo.getAbsolutePath());
+
+ 
+            CloudinaryService service = new CloudinaryService();
+
+            String urlImagen = service.subirImagen(archivo);
+
+            if (urlImagen != null) {
+
+                vista.txtRuta.setText(urlImagen);
+
+                JOptionPane.showMessageDialog(
+                        vista,
+                        "Imagen subida correctamente"
+                );
+
+            } else {
+
+                JOptionPane.showMessageDialog(
+                        vista,
+                        "Error al subir imagen"
+                );
+            }
         }
     }
 
     private void mostrarImagen(String ruta) {
-        try {
-            if (ruta == null || ruta.trim().isEmpty()) {
-                limpiarImagen();
-                return;
-            }
 
-            File archivo = new File(ruta);
+    try {
 
-            if (!archivo.exists()) {
-                limpiarImagen();
-                return;
-            }
+        ImageIcon iconoOriginal;
 
-            ImageIcon iconoOriginal = new ImageIcon(ruta);
+        if (ruta.startsWith("http")) {
 
-            int ancho = vista.lblMostrarImagen.getWidth();
-            int alto = vista.lblMostrarImagen.getHeight();
+            URL url = new URL(ruta);
+            iconoOriginal = new ImageIcon(url);
 
-            if (ancho <= 0) {
-                ancho = 280;
-            }
+        } else {
 
-            if (alto <= 0) {
-                alto = 320;
-            }
-
-            Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(
-                    ancho,
-                    alto,
-                    Image.SCALE_SMOOTH
-            );
-
-            vista.lblMostrarImagen.setText("");
-            vista.lblMostrarImagen.setIcon(new ImageIcon(imagenEscalada));
-
-        } catch (Exception e) {
-            limpiarImagen();
-            JOptionPane.showMessageDialog(vista, "No se pudo mostrar la imagen.");
+            iconoOriginal = new ImageIcon(ruta);
         }
+
+        Image imagenEscalada = iconoOriginal.getImage()
+                .getScaledInstance(
+                        vista.lblMostrarImagen.getWidth(),
+                        vista.lblMostrarImagen.getHeight(),
+                        Image.SCALE_SMOOTH
+                );
+
+        vista.lblMostrarImagen.setIcon(
+                new ImageIcon(imagenEscalada)
+        );
+
+    } catch (Exception e) {
+
+        limpiarImagen();
     }
+}
 
     private void limpiarImagen() {
         vista.lblMostrarImagen.setIcon(null);
