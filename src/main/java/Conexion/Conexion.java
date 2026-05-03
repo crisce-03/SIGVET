@@ -25,8 +25,6 @@ public class Conexion {
         try {
             // Cargar el driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Establecer la conexión con usuario root y sin clave
             conexion = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("¡Conexión a la base de datos de XAMPP exitosa!");
 

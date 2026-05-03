@@ -42,7 +42,7 @@ public class MDI extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        Proveedores = new javax.swing.JMenu();
+        jMenu_proveedores = new javax.swing.JMenu();
         jMenuItem_nuevo_proveedor = new javax.swing.JMenuItem();
         jMenuItem_gestionar_proveedores = new javax.swing.JMenuItem();
 
@@ -52,20 +52,47 @@ public class MDI extends javax.swing.JFrame {
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        Proveedores.setText("Proveedores");
+        jMenu_proveedores.setText("Proveedores");
 
         jMenuItem_nuevo_proveedor.setText("Nuevo Proveedor");
-        Proveedores.add(jMenuItem_nuevo_proveedor);
+        jMenuItem_nuevo_proveedor.addActionListener(this::jMenuItem_nuevo_proveedorActionPerformed);
+        jMenu_proveedores.add(jMenuItem_nuevo_proveedor);
 
         jMenuItem_gestionar_proveedores.setText("Gestionar Proveedores");
-        Proveedores.add(jMenuItem_gestionar_proveedores);
+        jMenuItem_gestionar_proveedores.addActionListener(this::jMenuItem_gestionar_proveedoresActionPerformed);
+        jMenu_proveedores.add(jMenuItem_gestionar_proveedores);
 
-        jMenuBar1.add(Proveedores);
+        jMenuBar1.add(jMenu_proveedores);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem_nuevo_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nuevo_proveedorActionPerformed
+        // TODO add your handling code here:
+        Vistas.FrmNuevoProveedor form = new Vistas.FrmNuevoProveedor();
+        Modelos.Proveedor proveedor=new Modelos.Proveedor();
+        Modelos.ProveedorDAO dao= new Modelos.ProveedorDAO();
+        Controladores.CtrlProveedor.CtrlNuevoProveedor ctrl=new Controladores.CtrlProveedor.CtrlNuevoProveedor(proveedor, form, dao);
+        
+        jDesktopPane_MDI.add(form);
+        form.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem_nuevo_proveedorActionPerformed
+
+    private void jMenuItem_gestionar_proveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_proveedoresActionPerformed
+        // TODO add your handling code here:
+        
+        Vistas.FrmGestionarProveedores form = new Vistas.FrmGestionarProveedores();
+        Modelos.Proveedor proveedor=new Modelos.Proveedor();
+        Modelos.ProveedorDAO dao= new Modelos.ProveedorDAO();
+        Controladores.CtrlProveedor.CtrlGestionarProveedores ctrl=new Controladores.CtrlProveedor.CtrlGestionarProveedores(proveedor, form, dao);
+        
+        ctrl.cargarTabla();
+        jDesktopPane_MDI.add(form);
+        form.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_gestionar_proveedoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,10 +120,10 @@ public class MDI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Proveedores;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_gestionar_proveedores;
     private javax.swing.JMenuItem jMenuItem_nuevo_proveedor;
+    private javax.swing.JMenu jMenu_proveedores;
     // End of variables declaration//GEN-END:variables
 }
