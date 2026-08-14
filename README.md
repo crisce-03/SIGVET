@@ -109,7 +109,7 @@ El sistema está desarrollado utilizando el patrón MVC.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Lenguajes y Frameworks
 
