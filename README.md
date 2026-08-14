@@ -77,7 +77,7 @@ Además, integra servicios en la nube para mejorar la disponibilidad de los dato
 * Control de acceso.
 * Administración de usuarios.
 
-###  Reportes
+  Reportes
 
 * Reportes de ventas.
 * Reportes de compras.
