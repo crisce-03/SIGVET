@@ -204,7 +204,7 @@ Para facilitar la evaluación del sistema:
 
 ---
 
-## 🎯 Objetivos del Proyecto
+##  Objetivos del Proyecto
 
 Este proyecto fue desarrollado para fortalecer conocimientos en:
 
@@ -217,9 +217,4 @@ Este proyecto fue desarrollado para fortalecer conocimientos en:
 
 ---
 
-## Participantes del Proyectp
-
-**Cristopher Cerritos**
-
-Estudiante de Ingeniería en Desarrollo de Software
 
