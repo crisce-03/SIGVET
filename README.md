@@ -1,4 +1,4 @@
-# 🛒 SIGVET - Sistema de Gestión de Ventas
+# SIGVET - Sistema de Gestión de Ventas
 
 <p align="center">
   <a href="https://github.com/Krabbiwolf/SIGVETV2/releases/tag/Instalador">
@@ -12,7 +12,7 @@
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge\&logo=cloudinary\&logoColor=white)
 ![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge\&logo=railway\&logoColor=white)
 
-## 📋 Descripción
+##  Descripción
 
 SIGVET es un sistema integral de gestión de ventas e inventario desarrollado en Java Swing y MySQL, diseñado para optimizar la administración de negocios mediante el control de ventas, compras, productos, clientes, proveedores, kardex y lotes.
 
@@ -20,64 +20,64 @@ El sistema implementa el patrón de diseño MVC (Model - View - Controller), per
 
 Además, integra servicios en la nube para mejorar la disponibilidad de los datos y la gestión de imágenes:
 
-* ☁️ Railway para el alojamiento de la base de datos MySQL.
-* 🖼️ Cloudinary para el almacenamiento y gestión de imágenes de productos.
+*  Railway para el alojamiento de la base de datos MySQL.
+*  Cloudinary para el almacenamiento y gestión de imágenes de productos.
 
 ---
 
-## 🚀 Funcionalidades Principales
+##  Funcionalidades Principales
 
-### 📦 Gestión de Productos
+###  Gestión de Productos
 
 * Registro de productos.
 * Actualización de información.
 * Control de stock.
 * Gestión de imágenes mediante Cloudinary.
 
-### 💰 Gestión de Ventas
+###  Gestión de Ventas
 
 * Registro de ventas.
 * Cálculo automático de totales.
 * Historial de ventas.
 * Actualización automática de inventario.
 
-### 🛒 Gestión de Compras
+###  Gestión de Compras
 
 * Registro de compras a proveedores.
 * Actualización automática de existencias.
 * Historial de compras.
 
-### 📑 Gestión de Kardex
+###  Gestión de Kardex
 
 * Registro detallado de movimientos de inventario.
 * Control de entradas y salidas.
 * Historial de movimientos.
 * Trazabilidad completa del inventario.
 
-### 📦 Gestión de Lotes
+###  Gestión de Lotes
 
 * Registro y control de lotes.
 * Seguimiento de existencias por lote.
 * Identificación de productos según lote.
 * Mejor control y trazabilidad.
 
-### 👥 Gestión de Clientes
+###  Gestión de Clientes
 
 * Registro y administración de clientes.
 * Consulta y actualización de información.
 
-### 🏢 Gestión de Proveedores
+###  Gestión de Proveedores
 
 * Registro y administración de proveedores.
 * Historial de compras realizadas.
 
-### 🔐 Gestión de Usuarios
+### Gestión de Usuarios
 
 * Inicio de sesión.
 * Control de acceso.
 * Administración de usuarios.
 
-### 📊 Reportes
+###  Reportes
 
 * Reportes de ventas.
 * Reportes de compras.
@@ -86,7 +86,7 @@ Además, integra servicios en la nube para mejorar la disponibilidad de los dato
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 
 El sistema está desarrollado utilizando el patrón MVC.
 
@@ -138,7 +138,7 @@ El sistema está desarrollado utilizando el patrón MVC.
 
 ---
 
-## ☁️ Infraestructura en la Nube
+##  Infraestructura en la Nube
 
 ### Railway
 
@@ -150,49 +150,49 @@ Las imágenes de productos son almacenadas en Cloudinary para evitar almacenamie
 
 ---
 
-## 📸 Capturas del Sistema
+##  Capturas del Sistema
 
-### 🔐 Inicio de Sesión
+###  Inicio de Sesión
 
 ![Login](screenshots/login.png)
 
-### 📊 Dashboard Principal
+###  Dashboard Principal
 
 ![Dashboard](screenshots/dashboard.png)
 
-### 📦 Gestión de Productos
+###  Gestión de Productos
 
 ![Productos](screenshots/productos.png)
 
-### 💰 Gestión de Ventas
+###  Gestión de Ventas
 
 ![Ventas](screenshots/ventas.png)
 
-### 🛒 Gestión de Compras
+###  Gestión de Compras
 
 ![Compras](screenshots/compras.png)
 
-### 📑 Kardex
+### Kardex
 
 ![Kardex](screenshots/kardex.png)
 
-### 📦 Gestión de Lotes
+###  Gestión de Lotes
 
 ![Lotes](screenshots/lotes.png)
 
 ---
 
-## 📥 Descarga
+##  Descarga
 
 Puedes descargar la última versión desde la sección de Releases:
 
-### 🔗 Descarga Directa
+###  Descarga Directa
 
 [Descargar SIGVET](https://github.com/Krabbiwolf/SIGVETV2/releases/tag/Instalador)
 
 ---
 
-## 🔑 Usuario de Prueba
+##  Usuario de Prueba
 
 Para facilitar la evaluación del sistema:
 
@@ -217,14 +217,9 @@ Este proyecto fue desarrollado para fortalecer conocimientos en:
 
 ---
 
-## 👨‍💻 Autor
+## Participantes del Proyectp
 
 **Cristopher Cerritos**
 
 Estudiante de Ingeniería en Desarrollo de Software
 
-📧 Correo: [cristophercerritos0@gmail.com](mailto:cristophercerritos0@gmail.com)
-
-🐙 GitHub: https://github.com/crisce-03
-
-⭐ Si te gusta este proyecto, considera dejar una estrella en el repositorio.
